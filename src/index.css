@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
+@import "./index_theme.css";
+@import "./index_base.css";
+@import "./index_components.css";
+@custom-variant dark (&:where(.dark, .dark *)); 

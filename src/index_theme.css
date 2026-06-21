@@ -1,0 +1,118 @@
+@theme {
+
+
+    /* Colors */
+    --color-primary-base: #339af0;
+    --color-primary-tint: #d0ebff;
+    --color-primary-shade: #1c7ed6;
+    --color-primary-tint-rgb: rgba(208, 235, 255, 1.0);
+
+    --color-secondary-base: #9775fa;
+    --color-secondary-tint: #e5dbff;
+    --color-secondary-shade: #7048e8;
+
+    --color-tertiary-base: #ff922b;
+    --color-tertiary-tint: #ffe8cc;
+    --color-tertiary-shade: #f76707;
+
+    --color-grey-base: #495057;
+    --color-grey-tint: #f1f3f5;
+    --color-grey-shade: #212529;
+
+    --color-surface-base: #fefefe;
+    --color-surface-subtle: #f9fafb;
+    --color-surface-border: #d1d5db;
+    --color-surface-border-subtle: #e2e8f0;
+    --color-modal-background : #00000066;
+
+
+    /* Dark Backgrounds  */
+    --color-dark-bg: #0f172a;
+    --color-dark-surface: #243045;
+    --color-dark-surface-subtle: → rgba(36,48,69,0.85);
+    --color-dark-theme-primary : #60a5fa;
+    --color-dark-inline-btn :  rgba(23, 37, 84, 0.4);
+    --color-dark-modal-background : #00000099;
+    --color-dark-metrics-card : #1f2937;
+
+
+    /* Charts */
+    --chart-bar-hp : #60a5fa;
+    --chart-bar-got :  #facc15;
+
+
+    /* Text  */
+    --color-dark-ink: #f1f5f9;
+    --color-dark-muted: #94a3b8;
+
+    /* Shadows  */
+    --color-dark-border: #64748b;
+    --color-dark-border-subtle : #334155;
+    --color-dark-shadow: rgba(0, 0, 0, 0.5);/* elevation */
+
+    /* Brand / interactive */
+    --color-dark-accent: #3b82f6;           /* primary brand (blue) */
+    --color-dark-accent-hover: #2563eb;
+    --color-dark-overlay: rgba(15, 23, 42, 0.8); /* for modals/backdrops */
+
+    /* Optional feedback states */
+    --color-dark-success: #22c55e;
+    --color-dark-error: #ef4444;
+
+    /* Font Families */
+    --font-default: "Poppins", sans-serif;
+    --font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+    /* Font Sizes */
+    --text-sm: 0.875rem; /* 14px */
+    --text-base: 1rem; /* 16px */
+    --text-md: 1.25rem; /* 20px */
+    --text-paragraph: 1.25rem; /* 20px */
+     --text-xl: 1.5rem; /* 24px */
+    --text-h5: 1.5rem; /* 24px */
+    --text-h4: 2rem; /* 32px */
+    --text-h3: 2.5rem; /* 40px */
+    --text-h2: 3rem; /* 48px */
+    --text-h1: 3.875rem; /* 62px */
+    --text-header : 1.5rem; /* 24px */
+
+
+    /* Radii */         
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-xl: 20px;
+
+    /* Shadows */
+    --shadow-xxs: 0 1px 1.5px rgba(0, 0, 0, 0.04);
+    --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 44px rgba(0, 0, 0, 0.16);
+    --shadow-search-light: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-search-dark: 0 2px 8px rgba(255,255,255,0.04);
+    --shadow-dark-btn : 0 0 8px #3b82f6aa;
+    --shadow-dark-card : 0 2px 8px rgba(255,255,255,0.04);
+
+
+    /* Breakpoints */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+
+    /* Letter Spacing */
+    --tracking-tight: 0.02rem;
+
+    /* Line Heights */
+    --leading-tight: 1.2;
+    --leading-normal: 1.5;
+    --leading-post : 2;
+
+    /* Font Weight */
+    --font-weight-bold: 700;
+    --font-weight-normal: 400;
+
+    --card-margin-default : 2.5rem;
+}

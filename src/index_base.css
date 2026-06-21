@@ -1,0 +1,47 @@
+@layer base {
+
+    * {
+        @apply transition-colors duration-700 ease-out;
+        @apply motion-safe:transition-colors motion-safe:duration-700;
+
+    }
+    html {
+        transition: background-color 0.7s ease, color 0.7s ease;
+        will-change: background-color;
+    }
+    body {
+        font-family: var(--font-default);
+        font-size: var(--text-base);
+        color : var(--color-grey-base);
+        font-weight: var(--font-weight-normal);
+        line-height: var(--leading-normal);
+        @apply dark:bg-dark-bg dark:text-dark-ink
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-weight: var(--font-weight-bold);
+        line-height: var(--leading-tight);
+        letter-spacing: var(--tracking-tight);
+        color: var(--color-grey-shade);
+        @apply dark:text-dark-ink
+    }
+
+    h1 {
+        font-size: var(--text-h1)
+    }
+    h2 {
+        font-size: var(--text-h2)
+    }
+    h3 {
+        font-size: var(--text-h3)
+    }
+    h4 {
+        font-size: var(--text-h4)
+    }
+    h5 {
+        font-size: var(--text-h5)
+    }
+    p {
+        font-size: var(--text-paragraph);
+    }
+}

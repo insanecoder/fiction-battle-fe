@@ -1,0 +1,135 @@
+@layer components {
+    .btn {
+        @apply bg-primary-base align-middle p-4 cursor-pointer;
+        @apply text-white rounded-md text-base leading-tight border-2 border-primary-base;
+        @apply dark:bg-blue-500 dark:text-gray-50 dark:shadow-dark-btn;
+        @apply hover:bg-primary-shade border-2 border-primary-shade;
+        @apply hover:dark:bg-dark-theme-primary;
+    }
+
+    .btn-inline {
+        @apply bg-white border-primary-base border-2 text-primary-base;
+        @apply dark:border-dark-theme-primary dark:text-dark-theme-primary;
+        @apply hover:bg-primary-base hover:text-white;
+        @apply hover:dark:bg-dark-inline-btn;
+    }
+
+    .site-header {
+        @apply sticky top-0 z-50;
+        @apply bg-white/90 backdrop-blur;
+        @apply border-b border-slate-200 px-10;
+        @apply dark:shadow-none dark:bg-dark-surface/90 dark:border-dark-border;
+    }
+
+    .card {
+        @apply bg-surface-base dark:bg-dark-surface p-5 mx-[var(--card-margin-default)] mb-5;
+        @apply border-surface-border dark:bg-dark-border-subtle border rounded-xl;
+        @apply shadow-sm hover:shadow-md dark:shadow-dark-card transition-all duration-500;
+    }
+
+    .profile-icon {
+        @apply w-12 h-12 rounded-full inline-flex flex-none justify-center items-center;
+        @apply bg-surface-subtle border-surface-border dark:bg-dark-surface-subtle dark:border-dark-border;
+        @apply text-grey-base dark:text-slate-400 font-bold shadow-inner;
+
+    }
+
+    .comment {
+        @apply bg-surface-base border border-surface-border dark:bg-dark-surface dark:border-dark-border;
+        @apply shadow-md rounded-md shadow-sm border-surface-border;
+
+    }
+
+    .pills {
+        @apply bg-surface-subtle dark:bg-dark-surface-subtle/70;
+        @apply border dark:border-dark-border rounded-full border-surface-border;
+        @apply inline-block text-sm text-grey-shade shadow-sm dark:text-dark-ink;
+        @apply px-2.5 py-0.5;
+        @apply hover:shadow-md hover:cursor-pointer;
+    }
+
+    /* Characters / People */
+    .pills[data-subtype="character"],
+    .pills[data-subtype="person"],
+    .pills[data-subtype="all"] {
+        @apply bg-indigo-500 text-white border-indigo-500;
+        @apply hover:bg-indigo-700 hover:border-indigo-500;
+        @apply dark:bg-blue-900/40 dark:text-blue-300 dark:border-blue-700;
+    }
+
+    /* Events */
+    .pills[data-subtype="event"] {
+        @apply bg-amber-500 text-white border-amber-500;
+        @apply hover:bg-amber-700 hover:border-amber-700;
+        @apply dark:bg-amber-900/40 dark:text-amber-300 dark:border-amber-700;
+    }
+
+    /* Places */
+    .pills[data-subtype="place"] {
+        @apply bg-emerald-500 text-white border-emerald-500;
+        @apply hover:bg-emerald-700 hover:border-emerald-700;
+        @apply dark:bg-emerald-900/40 dark:text-emerald-300 dark:border-emerald-700;
+    }
+
+    /* Spells or Magical Objects */
+    .pills[data-subtype="spell"],
+    .pills[data-subtype="artifact"] {
+        @apply bg-violet-500 text-white border-violet-500;
+        @apply hover:bg-violet-700 border-violet-700;
+        @apply dark:bg-violet-900/40 dark:text-violet-300 dark:border-violet-700;
+    }
+
+    /* --- Universe - like HP/GOT --- */
+    .pills[data-subtype="house"] {
+        @apply bg-orange-400 text-white border-orange-400;
+        @apply hover:bg-orange-600 hover:border-orange-600;
+        @apply dark:bg-orange-500/40 dark:text-orange-200 dark:border-orange-500;
+    }
+
+    /* --- Universe like HP/GOT --- */
+    .pills[data-type="filter"] {
+        @apply border-primary-tint border-2 text-slate-500 shadow-sm shadow-primary-tint font-medium;
+        @apply hover:shadow-md transition-transform hover:scale-110;
+        @apply dark:text-dark-ink dark:border-dark-border dark:shadow-2xs;
+        @apply dark:hover:shadow-sm;
+    }
+
+    .pills[data-active="true"] {
+        @apply border-slate-300 dark:bg-slate-700 dark:text-white;
+        box-shadow: 0 2px 6px rgb(var(--color-primary-tint-rgb) / 0.35), 0 1px 2px  rgb(var(--color-primary-tint-rgb) / 0.25);
+        @apply bg-primary-base text-white;
+    }
+
+    .filter-tabs {
+        @apply px-2 py-1 font-medium cursor-pointer dark:text-dark-ink;
+        @apply inline-block;
+        @apply border-r-2 border-primary-tint;
+        @apply transition-transform hover:scale-105;
+    }
+
+    /* 🔹 Active pill (selected state — default on load) */
+    .pills-active {
+    @apply relative border text-sky-700 bg-sky-100 shadow-inner shadow-sky-200
+            dark:bg-sky-900/50 dark:border-sky-600/70 dark:text-sky-300
+            dark:shadow-inner dark:shadow-sky-950/40
+            transition-all duration-150;
+    }
+
+
+    /* 🔹 Hover tweaks for active pills */
+    .pills-active:hover {
+        @apply bg-sky-200 dark:bg-sky-800/60;
+    }
+
+    .search-bar {
+        @apply border-2 border-primary-tint dark:border-slate-600;
+        @apply shadow-search-light dark:shadow-search-dark;
+    }
+
+    .modal {
+        @apply fixed z-50 inset-0 h-dvh;
+        @apply flex items-center justify-center;
+        @apply backdrop-blur-sm bg-modal-background dark:bg-dark-modal-background;
+    }
+
+}
