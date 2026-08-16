@@ -4,6 +4,7 @@ type ButtonComponent = {
     children : React.ReactNode,
     extraClasses? : string,
     ariaLabel : string,
+    disabled? : boolean,
     handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 export default function Button(props : ButtonComponent) {
@@ -14,7 +15,7 @@ export default function Button(props : ButtonComponent) {
     if (props.extraClasses) {
         classNames += props.extraClasses;
     }
-    return <button aria-label={props.ariaLabel} className={classNames} onClick={props.handleClick}>
+    return <button aria-label={props.ariaLabel} className={classNames} onClick={props.handleClick} disabled={props.disabled}>
         <span className="flex justify-items-start gap-2 items-center shrink-0">
             {props.icon} <span className="inline-block text-center flex-1">{props.children}</span>
         </span>

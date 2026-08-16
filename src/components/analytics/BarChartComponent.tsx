@@ -82,14 +82,14 @@ import { Bar, BarChart, CartesianGrid, Cell, Label, LabelList, Legend, Rectangle
 //   );
 // };
 
-export default function BarChartComponent() {
-const topCharacterData = [
-  { name: "Jon Snow", posts: 700, universe: "GOT" },
-  { name: "Harry Potter", posts: 680, universe: "HP" },
-  { name: "Arya", posts: 640, universe: "GOT" },
-  { name: "Hermione", posts: 520, universe: "HP" },
-  { name: "Ron", posts: 520, universe: "HP" },
-].sort((a, b) => b.posts - a.posts);
+type TopCharacter = { name: string; posts: number; universe: "HP" | "GOT" };
+
+type BarChartComponentProps = {
+  data?: TopCharacter[];
+};
+
+export default function BarChartComponent({ data }: BarChartComponentProps) {
+const topCharacterData = [...(data ?? [])].sort((a, b) => b.posts - a.posts);
 
 return (
 <ResponsiveContainer width="100%" height={280}>

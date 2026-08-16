@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CardComponent } from "./CardComponent";
 import type { PostType, Tag, TagType } from "../../types";
 import { timeAgo, callAPI } from "../../common/utils/CommonUtils";
+import { usePostsStore } from "../../store/PostsStore";
 
 const PAGE_SIZE = 10;
 
@@ -65,6 +66,7 @@ export function PostComponent({ filter = {} }: { filter?: PostsFilter }) {
   const [loading, setLoading]       = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError]           = useState<string | null>(null);
+  const refreshToken = usePostsStore((s) => s.refreshToken);
 
   const filterKey = useMemo(() => JSON.stringify(filter), [filter]);
 
@@ -81,7 +83,7 @@ export function PostComponent({ filter = {} }: { filter?: PostsFilter }) {
       })
       .catch((err: Error) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [filterKey]);
+  }, [filterKey, refreshToken]);
 
   const handleLoadMore = () => {
     const nextPage = page + 1;

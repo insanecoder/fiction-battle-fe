@@ -115,6 +115,7 @@ import {
   PenSquare,
   Swords,
 } from "lucide-react";
+import { timeAgo } from "../../common/utils/CommonUtils";
 
 type ActivityItem = {
   id: string;
@@ -123,36 +124,6 @@ type ActivityItem = {
   time: string;
   universe?: "HP" | "GOT";
 };
-
-const activities: ActivityItem[] = [
-  {
-    id: "1",
-    type: "POST",
-    text: "New post by Abhinav in GOT",
-    time: "2m ago",
-    universe: "GOT",
-  },
-  {
-    id: "2",
-    type: "LIKE",
-    text: "Jon Snow debate received 12 new likes",
-    time: "5m ago",
-  },
-  {
-    id: "3",
-    type: "COMMENT",
-    text: "New comment on Harry Potter vs Voldemort thread",
-    time: "9m ago",
-    universe: "HP",
-  },
-  {
-    id: "4",
-    type: "TAG",
-    text: "Arya Stark mentioned in a new post",
-    time: "14m ago",
-    universe: "GOT",
-  },
-];
 
 function getIcon(type: ActivityItem["type"]) {
   switch (type) {
@@ -207,7 +178,11 @@ function UniverseBadge({ universe }: { universe?: "HP" | "GOT" }) {
   );
 }
 
-export default function LiveActivityCard() {
+type LiveActivityCardProps = {
+  activities?: ActivityItem[];
+};
+
+export default function LiveActivityCard({ activities = [] }: LiveActivityCardProps) {
   return (
     <section className="  rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900 h-[300px] overflow-y-scroll">
       <div className="mb-4 flex items-start justify-between gap-3">

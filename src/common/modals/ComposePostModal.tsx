@@ -4,20 +4,37 @@ import BaseModal from "./BaseModal";
 import ProfileIcon from "../components/ProfileIcon";
 import { callAPI } from "../utils/CommonUtils";
 import { useState } from "react";
+import { useToast } from "../../hooks/useToast";
+import { logger } from "../utils/Logger";
+import { usePostsStore } from "../../store/PostsStore";
 
 type ComposeModalProps = ModalProps & {
     user : User
 }
 export default function ComposePostModal(props:ComposeModalProps) {
     const [postContent, setPostContent] = useState("")
-    const composePostCTA = () => {
-        const apiResp = callAPI("v1/posts/create-post", {
-            "method" : "POST",
-            "body" : {
-                "content": postContent
-            }
-        })
-        console.log(apiResp)
+    const [posting, setPosting] = useState(false)
+    const toast = useToast()
+    const triggerRefresh = usePostsStore((s) => s.triggerRefresh)
+
+    const composePostCTA = async () => {
+        setPosting(true)
+        try {
+            await callAPI("v1/posts/create-post", {
+                "method" : "POST",
+                "body" : {
+                    "content": postContent
+                }
+            })
+            setPostContent("")
+            triggerRefresh()
+            props.closeModal()
+        } catch (err) {
+            logger.error(`Failed to create post: ${err}`)
+            toast.error("Failed to post. Please try again.")
+        } finally {
+            setPosting(false)
+        }
     }
     return (
         <BaseModal
@@ -34,7 +51,7 @@ export default function ComposePostModal(props:ComposeModalProps) {
                     <input type="file" id="post-file-upload" accept="image/*" className="hidden" /> */}
                     
                     <div className="flex justify-end items-center">
-                        <span className="cursor-pointer hover:scale-105" onClick={props.closeModal}>Cancel</span><Button handleClick={composePostCTA} ariaLabel="Compose Post" type="primary" extraClasses="ml-3 py-2 px-4 dark:bg-primary-base/100 hover:scale-105 hover:bg-primary-shade/100">Post</Button>
+                        <span className="cursor-pointer hover:scale-105" onClick={props.closeModal}>Cancel</span><Button handleClick={composePostCTA} disabled={posting} ariaLabel="Compose Post" type="primary" extraClasses="ml-3 py-2 px-4 dark:bg-primary-base/100 hover:scale-105 hover:bg-primary-shade/100">{posting ? "Posting..." : "Post"}</Button>
                     </div>
                 </div>
         </BaseModal>

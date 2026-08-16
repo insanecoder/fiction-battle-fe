@@ -68,13 +68,21 @@ import { PieChart, ResponsiveContainer, Pie, Legend, Tooltip, Cell, Label } from
 // };    
 
 
-export default function PieChartComponent() {
-const universeShareData = [
-  { name: "HP", value: 44, fill: "var(--chart-bar-hp)" },
-  { name: "GOT", value: 56, fill: "var(--chart-bar-got)" },
-];
+type UniverseShare = { name: "HP" | "GOT"; value: number };
 
-const winner = universeShareData.reduce((a, b) => (a.value > b.value ? a : b));
+type PieChartComponentProps = {
+  data?: UniverseShare[];
+};
+
+export default function PieChartComponent({ data }: PieChartComponentProps) {
+const universeShareData = (data ?? []).map((d) => ({
+  ...d,
+  fill: d.name === "HP" ? "var(--chart-bar-hp)" : "var(--chart-bar-got)",
+}));
+
+const winner = universeShareData.length
+  ? universeShareData.reduce((a, b) => (a.value > b.value ? a : b))
+  : { name: "—", value: 0 };
 return (
 <ResponsiveContainer width="100%" height={260}>
   <PieChart>
