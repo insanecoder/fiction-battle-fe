@@ -3,6 +3,7 @@
   name: string;
   email: string;
   photo: string;
+  userName?: string;
 };
 
 export type TagType = "person"|"place"|"artifact"|"event";

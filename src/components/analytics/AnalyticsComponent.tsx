@@ -63,7 +63,7 @@ export default function AnalyticsComponent() {
                     <BarChartComponent data={summary?.topCharacters} />
                     <PieChartComponent data={summary?.universeShare} />
                 </div>
-                <div className="grid grid-cols-[7fr_3fr]">
+                <div className="grid grid-cols-[6fr_5fr] gap-3">
                     <AreaChartComponent activities={liveActivity} />
                     <EngagementChartComponent data={summary?.engagement} />
                 </div>

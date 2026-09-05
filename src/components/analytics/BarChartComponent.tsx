@@ -1,4 +1,4 @@
-import { Bar, BarChart, CartesianGrid, Cell, Label, LabelList, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Cell, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 // type BarChartData = {
 //     name: string,

@@ -1,10 +1,9 @@
 import { FcGoogle } from "react-icons/fc";
 import Button from "../components/Button";
 import BaseModal from "./BaseModal";
-import type { ModalProps, User } from "../../types";
+import type { ModalProps } from "../../types";
 
 type SignInModalProps = ModalProps & {
-    user: User
     loginUser : () => void
 }
 

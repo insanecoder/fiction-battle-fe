@@ -24,6 +24,7 @@ export async function signInWithGoogle() : Promise<User> {
   const result = await signInWithPopup(auth, googleProvider);
   const firebaseUser = result.user;
   return {
+    userId: "", // assigned by the caller once v1/user/create returns the real id
     name: firebaseUser.displayName || "User",
     email: firebaseUser.email || "",
     photo: firebaseUser.photoURL || "",

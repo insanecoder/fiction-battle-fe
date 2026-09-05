@@ -115,7 +115,6 @@ import {
   PenSquare,
   Swords,
 } from "lucide-react";
-import { timeAgo } from "../../common/utils/CommonUtils";
 
 type ActivityItem = {
   id: string;
