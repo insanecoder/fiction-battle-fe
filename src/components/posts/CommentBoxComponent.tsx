@@ -20,7 +20,7 @@ export default function CommentBoxComponent({ postId, commentId, onSuccess, onCa
         : `${BASE_URL}v1/posts/${postId}/comments`;
 
     const handleSubmit = async () => {
-        if (!text.trim()) return;
+        if (!text.trim() || submitting) return;
         setSubmitting(true);
         try {
             const token = await getFirebaseIdToken();
@@ -52,7 +52,11 @@ export default function CommentBoxComponent({ postId, commentId, onSuccess, onCa
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
             />
-            <button className="btn text-sm px-3" onClick={handleSubmit} disabled={submitting}>
+            <button
+                className="btn text-sm px-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleSubmit}
+                disabled={submitting || !text.trim()}
+            >
                 {submitting ? "..." : "Post"}
             </button>
             {onCancel && (
