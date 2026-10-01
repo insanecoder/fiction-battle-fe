@@ -25,8 +25,8 @@ export default function AnalyticsComponent() {
 
     return (
         <section className="mx-[var(--card-margin-default)] mb-10">
-            <div className="mb-6 rounded-2xl border border-[var(--color-surface-border-subtle)] bg-[var(--color-surface-subtle)] px-6 py-4 dark:border-[var(--color-dark-border-subtle)] dark:bg-[var(--color-dark-surface-subtle)]">
-                <div className="flex items-center justify-between">
+            <div className="mb-6 rounded-2xl border border-[var(--color-surface-border-subtle)] bg-[var(--color-surface-subtle)] px-4 py-4 sm:px-6 dark:border-[var(--color-dark-border-subtle)] dark:bg-[var(--color-dark-surface-subtle)]">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
                     <div>
                     <p className="text-sm text-[var(--color-grey-base)] dark:text-[var(--color-dark-muted)]">
@@ -37,7 +37,7 @@ export default function AnalyticsComponent() {
                     </h3>
                     </div>
 
-                    <div className="text-right">
+                    <div className="sm:text-right">
                     <p className="text-sm text-[var(--color-grey-base)] dark:text-[var(--color-dark-muted)]">
                         Weekly Engagement
                     </p>
@@ -49,21 +49,21 @@ export default function AnalyticsComponent() {
                 </div>
             </div>
             <div className="mb-3">
-                <h2 className="text-3xl inline-block mr-2">Battle of Fiction </h2> <span className="text-sm text-grey-base dark:text-dark-muted">Click on a chart to apply a filter ↓</span>
+                <h2 className="text-2xl sm:text-3xl inline-block mr-2">Battle of Fiction </h2> <span className="text-sm text-grey-base dark:text-dark-muted">Click on a chart to apply a filter ↓</span>
             </div>
-            <div className="flex justify-between mt-10 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-6 mb-10 sm:mt-10 sm:mb-16">
                 <MetricsSummaryComponent title="Posts Today" content={String(metrics?.postsToday ?? "—")}> </MetricsSummaryComponent>
                 <MetricsSummaryComponent title="Total Likes" content={metrics ? metrics.totalLikes.toLocaleString() : "—"}> </MetricsSummaryComponent>
                 <MetricsSummaryComponent title="Posts Comments" content={metrics ? metrics.totalComments.toLocaleString() : "—"}> </MetricsSummaryComponent>
                 <MetricsSummaryComponent title="Top Tag" content={metrics?.topTag ?? "—"}> </MetricsSummaryComponent>
             </div>
 
-            <div className="grid grid-rows-2 gap-4">
-                <div className="grid grid-cols-[3fr_2fr]">
+            <div className="flex flex-col gap-8 md:gap-4">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_2fr] md:gap-4">
                     <BarChartComponent data={summary?.topCharacters} />
                     <PieChartComponent data={summary?.universeShare} />
                 </div>
-                <div className="grid grid-cols-[6fr_5fr] gap-3">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-[6fr_5fr] md:gap-3">
                     <AreaChartComponent activities={liveActivity} />
                     <EngagementChartComponent data={summary?.engagement} />
                 </div>

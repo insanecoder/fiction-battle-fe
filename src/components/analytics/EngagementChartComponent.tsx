@@ -18,24 +18,27 @@ export default function EngagementChartComponent({ data }: EngagementChartCompon
     const commentsData = engagementData.map((d) => ({ universe: d.universe, value: d.comments }));
 
     return (
-        <div className="flex h-full flex-col gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
             <MiniEngagementChart title="Likes" data={likesData} />
             <MiniEngagementChart title="Comments" data={commentsData} />
         </div>
     )
 }
 
+const compactFormatter = new Intl.NumberFormat("en", { notation: "compact" });
+const compactNumber = (v: number) => compactFormatter.format(v);
+
 function MiniEngagementChart({ title, data }: { title: string; data: { universe: "HP" | "GOT"; value: number }[] }) {
     return (
-        <div className="flex-1">
+        <div>
             <p className="mb-1 text-xs font-medium text-[var(--color-grey-base)] dark:text-[var(--color-dark-muted)]">
                 {title}
             </p>
-            <ResponsiveContainer width="100%" height="85%">
+            <ResponsiveContainer width="100%" height={125}>
                 <BarChart data={data} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
                     <CartesianGrid strokeOpacity={0.12} vertical={false} />
                     <XAxis dataKey="universe" tickLine={false} axisLine={false} />
-                    <YAxis tickLine={false} axisLine={false} width={40} />
+                    <YAxis tickLine={false} axisLine={false} width={44} tickFormatter={compactNumber} />
                     <Tooltip content={<EngagementTooltip metric={title} />} />
                     <Bar dataKey="value" radius={[8, 8, 0, 0]} barSize={34}>
                         {data.map((d) => (

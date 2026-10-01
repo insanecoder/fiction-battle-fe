@@ -183,13 +183,13 @@ type LiveActivityCardProps = {
 
 export default function LiveActivityCard({ activities = [] }: LiveActivityCardProps) {
   return (
-    <section className="  rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900 h-[300px] overflow-y-scroll">
+    <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900 h-[300px] overflow-y-auto">
       <div className="mb-4 flex items-start justify-between gap-3">
         <div>
           <h3 className="text-base font-semibold text-gray-900 dark:text-white">
             ⚡ Live Activity
           </h3>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
             Recent interactions across the platform
           </p>
         </div>
@@ -203,7 +203,7 @@ export default function LiveActivityCard({ activities = [] }: LiveActivityCardPr
         {activities.map((item) => (
           <article
             key={item.id}
-            className="group relative flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-4 transition-all duration-200 hover:-translate-y-[1px] hover:bg-slate-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:bg-slate-700"
+            className="group relative flex items-start gap-3 sm:gap-4 rounded-xl border border-gray-200 bg-white p-3 sm:p-4 transition-all duration-200 hover:-translate-y-[1px] hover:bg-slate-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:bg-slate-700"
           >
             <span
               className={`absolute left-0 top-4 h-8 w-1 rounded-r-full ${getAccentBar(
