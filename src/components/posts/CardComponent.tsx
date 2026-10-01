@@ -106,7 +106,7 @@ export function CardComponent({ postId, user, post, time, tags, likeCount, comme
                 )}
 
                 {commentsVisible && (
-                    <div className="mt-4">
+                    <div className="mt-4 flex flex-col gap-1">
                         {authUser && (
                             <CommentBoxComponent postId={postId} onSuccess={handleCommentAdded} />
                         )}
@@ -114,9 +114,7 @@ export function CardComponent({ postId, user, post, time, tags, likeCount, comme
                             <div className="text-sm text-slate-400 mt-2">Loading comments...</div>
                         ) : (
                             comments.map((c) => (
-                                <div key={c._id} className="mt-3">
-                                    <CommentComponent comment={c} postId={postId} />
-                                </div>
+                                <CommentComponent key={c._id} comment={c} postId={postId} />
                             ))
                         )}
                     </div>

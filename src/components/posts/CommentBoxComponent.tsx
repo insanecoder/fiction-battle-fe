@@ -43,9 +43,9 @@ export default function CommentBoxComponent({ postId, commentId, onSuccess, onCa
     };
 
     return (
-        <div className="flex gap-2 mt-2">
+        <div className="flex items-center gap-2 mt-2 mb-2">
             <input
-                className="card m-0 p-2 flex-1 text-sm"
+                className="flex-1 min-w-0 text-sm px-4 py-2 rounded-full border border-surface-border bg-surface-base dark:bg-dark-surface dark:border-dark-border outline-none focus:border-primary-base dark:focus:border-dark-theme-primary"
                 type="text"
                 placeholder={commentId ? "Write a reply..." : "Write a comment..."}
                 value={text}
@@ -53,14 +53,14 @@ export default function CommentBoxComponent({ postId, commentId, onSuccess, onCa
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
             />
             <button
-                className="btn text-sm px-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn text-sm px-4 py-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={handleSubmit}
                 disabled={submitting || !text.trim()}
             >
                 {submitting ? "..." : "Post"}
             </button>
             {onCancel && (
-                <button className="text-sm text-slate-400" onClick={onCancel}>Cancel</button>
+                <button className="comment-action" onClick={onCancel}>Cancel</button>
             )}
         </div>
     );

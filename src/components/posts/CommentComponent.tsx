@@ -39,26 +39,26 @@ export default function CommentComponent({ comment, postId }: CommentProp) {
 
     return (
         <>
-            <div className="comment p-2 mt-1 flex gap-2">
-                <div
-                    className="profile-icon text-xs w-6 h-6 mr-2 self-start shrink-0"
-                >
+            <div className="flex gap-3 py-1.5">
+                <div className="w-8 h-8 shrink-0 *:w-8 *:h-8 *:text-xs *:object-cover">
                     <ProfileIcon user={comment.user}></ProfileIcon>
                 </div>
-                <div className="flex flex-col flex-1">
-                    <span className="font-extrabold text-sm dark:text-dark-ink">
-                        {comment.user?.name ?? "Unknown"}
-                    </span>
-                    <div>{comment.content}</div>
+                <div className="flex flex-col flex-1 min-w-0">
+                    <div className="comment self-start max-w-full">
+                        <div className="font-bold text-sm dark:text-dark-ink">
+                            {comment.user?.name ?? "Unknown"}
+                        </div>
+                        <div className="text-sm leading-relaxed break-words">{comment.content}</div>
+                    </div>
 
-                    <div className="flex gap-3 mt-1 text-xs text-slate-400">
+                    <div className="flex gap-4 mt-1 ml-4">
                         {comment.replyCount > 0 && (
-                            <button onClick={toggleReplies} className="hover:underline cursor-pointer">
+                            <button onClick={toggleReplies} className="comment-action">
                                 {repliesVisible ? "Hide replies" : `${comment.replyCount} ${comment.replyCount === 1 ? "reply" : "replies"}`}
                             </button>
                         )}
                         {authUser && (
-                            <button onClick={() => setReplyBoxOpen((v) => !v)} className="hover:underline cursor-pointer">
+                            <button onClick={() => setReplyBoxOpen((v) => !v)} className="comment-action">
                                 {replyBoxOpen ? "Cancel" : "Reply"}
                             </button>
                         )}
@@ -76,7 +76,7 @@ export default function CommentComponent({ comment, postId }: CommentProp) {
             </div>
 
             {repliesVisible && (
-                <div className="border-l-2 border-dotted border-surface-border dark:border-dark-border ml-6">
+                <div className="border-l-2 border-surface-border dark:border-dark-border ml-4 pl-5">
                     {loadingReplies ? (
                         <div className="text-xs text-slate-400 p-2">Loading replies...</div>
                     ) : (
